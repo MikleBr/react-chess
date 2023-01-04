@@ -9,13 +9,12 @@ import { Rook } from './figures/Rook';
 
 export class Board {
   cells: Cell[][] = [];
-  // direction: Colors = Colors.BLACK;
 
   public initCells() {
     for (let y = 0; y < 8; y++) {
       const row: Cell[] = [];
       for (let x = 0; x < 8; x++) {
-        const isWhite = (x + y) % 2 === 0;
+        const isWhite = (x + y) % 2 !== 0;
         row.push(
           new Cell(this, x, y, isWhite ? Colors.WHITE : Colors.BLACK, null)
         );
@@ -28,6 +27,23 @@ export class Board {
     return this.cells[y][x];
   }
 
+  public changeDirection() {
+    const cells = this.cells;
+    for (let y = 0; y < 4; y++) {
+      const row = cells[y];
+      const mirrorRow = cells[7 - y];
+      for (let x = 0; x < 8; x++) {
+        const currentCell = row[x];
+        row[x] = mirrorRow[x];
+        mirrorRow[x] = currentCell;
+      }
+      cells[7 - y] = mirrorRow;
+    }
+    const newBoard = new Board();
+    newBoard.cells = this.cells;
+    return newBoard;
+  }
+
   private addPawns() {
     for (let i = 0; i < 8; i++) {
       new Pawn(Colors.WHITE, this.getCell(i, 1));
@@ -36,8 +52,8 @@ export class Board {
   }
 
   private addKings() {
-    new King(Colors.WHITE, this.getCell(3, 0));
-    new King(Colors.BLACK, this.getCell(3, 7));
+    new King(Colors.WHITE, this.getCell(4, 0));
+    new King(Colors.BLACK, this.getCell(4, 7));
   }
 
   private addKnights() {
@@ -48,8 +64,8 @@ export class Board {
   }
 
   private addQueens() {
-    new Queen(Colors.WHITE, this.getCell(4, 0));
-    new Queen(Colors.BLACK, this.getCell(4, 7));
+    new Queen(Colors.WHITE, this.getCell(3, 0));
+    new Queen(Colors.BLACK, this.getCell(3, 7));
   }
 
   private addBishops() {

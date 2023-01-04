@@ -1,3 +1,4 @@
+import { getChessCoordinates } from '../utils/getChessCoordinates';
 import { Board } from './Board';
 import { Colors } from './Colors';
 import { BaseFigure } from './figures/BaseFigure';

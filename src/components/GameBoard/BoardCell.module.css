@@ -45,6 +45,18 @@
   background-color: #a23a3a;
 }
 
+.cell .coordinateX {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.cell .coordinateY {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
 .cell .available {
   position: absolute;
   top: 50%;

@@ -1,0 +1,9 @@
+.turnsList {
+  position: absolute;
+  top: calc((100vh - 800px) / 2);
+  left: calc(50vw + 450px);
+}
+
+.turnsList .turn {
+  width: 100px;
+}
