@@ -1,0 +1,63 @@
+.cell {
+  position: relative;
+  width: 100px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #f0d9b5;
+
+  cursor: pointer;
+}
+
+.cell.black {
+  background-color: #b58863;
+}
+
+.cell .figure {
+  font-size: 20px;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell .figure img {
+  width: 55px;
+}
+
+.cell .figure.black {
+  color: #000;
+}
+
+.cell.selected {
+  background-color: #829769;
+}
+
+.cell.black.selected {
+  background-color: #646f40;
+}
+
+.cell.available {
+  background-color: #a23a3a;
+}
+
+.cell .available {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 15px;
+  background-color: #829769;
+}
+
+.cell.black .available {
+  background-color: #646f40;
+}
